@@ -1,0 +1,138 @@
+body,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#logoImg {
+  max-height: 50px;
+}
+.header {
+  background-color: whitesmoke;
+  max-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + h1 {
+  padding-top: 80px;
+}
+
+#menu {
+  display: flex;
+}
+
+#menu li {
+  margin-left: 15px;
+}
+
+#menu li a {
+  display: block;
+  padding: 10px;
+  background-color: #74cc34;
+  color: black;
+}
+#menu li a:hover {
+  background-color: #d40404;
+  color: white;
+}
+
+#btn-mobile {
+  display: none;
+}
+
+button {
+  color: white;
+}
+
+#nav {
+  padding-right: 25px;
+}
+
+@media (max-width: 600px) {
+  #menu li a,
+  #menu li {
+    margin: 0px;
+  }
+
+  #btn-mobile {
+    display: block;
+  }
+  #menu {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background: whitesmoke;
+    transition: 0.5s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+  #nav.active #menu {
+    height: 176px;
+    visibility: visible;
+    overflow-y: auto;
+  }
+  #menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  }
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  #hamburger {
+    color: white;
+    display: block;
+    border-top: 2px solid;
+    width: 20px;
+  }
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  #nav.active #hamburger {
+    border-top-color: transparent;
+  }
+  #nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+}
